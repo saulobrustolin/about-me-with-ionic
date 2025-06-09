@@ -1,3 +1,31 @@
-<p>
-  project-detail works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons fill="clear" slot="start">
+      <button (click)="closeModal()">
+        <ion-icon slot="icon-only" size="large" name="return-up-back-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Detalhes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Detalhes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ project.title }}</ion-card-title>
+    <ion-card-subtitle>{{ project.subtitle }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ project.description }}
+  </ion-card-content>
+</ion-card>
+</ion-content>

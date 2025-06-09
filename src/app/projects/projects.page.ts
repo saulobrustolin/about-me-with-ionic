@@ -35,15 +35,14 @@ export class ProjectsPage implements OnInit {
 
   }
 
-  async viewDetails(e: any) {
+  async viewDetails(project: any) {
     const modal = await this.modalController.create({
-      component: ProjectDetailComponent
+      component: ProjectDetailComponent,
+      componentProps: {
+        project
+      }
     })
     await modal.present()
-    const mod = await modal.onDidDismiss()
-    if (mod) {
-      console.log(mod)
-    }
+    await modal.onDidDismiss()
   }
-
 }

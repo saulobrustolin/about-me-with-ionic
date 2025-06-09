@@ -17,7 +17,7 @@
   </ion-header>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let x of projects" (click)="viewDetails($event)">
+    <ion-item-sliding *ngFor="let x of projects" (click)="viewDetails(x)">
       <ion-item detail="true">
         <ion-label>
           <ion-text>
