@@ -15,4 +15,18 @@
       <ion-title size="large">Projetos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let x of projects" (click)="viewDetails($event)">
+      <ion-item detail="true">
+        <ion-label>
+          <ion-text>
+            <h3> {{ x.title }} </h3>
+          </ion-text>
+          <p>{{ x.subtitle }}</p>
+        </ion-label>
+      </ion-item>
+
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

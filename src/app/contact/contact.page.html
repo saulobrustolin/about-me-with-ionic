@@ -16,29 +16,39 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
+  <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
     <ion-item>
-      <ion-input labelPlacement="floating" label="Nome" placeholder="Digite seu nome" required></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input labelPlacement="floating" label="E-mail" type="mail" placeholder="Digite seu e-mail" required></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-textarea
-        label="Deixe seu comentário"
-        labelPlacement="floating"
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input
+        type="text"
+        formControlName="name"
         required
-        rows="5"
-      ></ion-textarea>
+        errorText="Nome é obrigatório"
+      ></ion-input>
     </ion-item>
 
-    <div class="ion-padding-top">
-      <ion-button type="submit" expand="block">
-        Enviar
-        <ion-icon slot="end" name="send"></ion-icon>
-      </ion-button>
-    </div>
-  </ion-list>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input
+        type="email"
+        formControlName="email"
+        required
+        errorText="Email inválido"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mensagem</ion-label>
+      <ion-textarea formControlName="message" required></ion-textarea>
+    </ion-item>
+
+    <ion-button
+      type="submit"
+      expand="block"
+      class="ion-margin-top"
+      [disabled]="contactForm.invalid"
+    >
+      Enviar
+    </ion-button>
+  </form>
 </ion-content>
